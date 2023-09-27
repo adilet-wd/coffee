@@ -1,0 +1,101 @@
+@import "../../color_variables";
+@import "../../breakpoints";
+
+.about-us {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito', sans-serif;
+    .container-fluid {
+        &:nth-child(even) {
+            background-color: $colorWhite;
+        }
+    }
+    &__block {
+        padding: 20px 0;
+
+        h1,
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Roboto Condensed', sans-serif;
+            position: relative;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: -15px;
+                left: 0;
+                width: 60px;
+                height: 3px;
+                background-color: $colorMainActive;
+            }
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        .row {
+            &>* {
+                &:nth-child(1) {
+                    margin-right: 70px;
+                }
+            }
+        }
+
+        img {
+            max-width: 800px;
+            width: 100%;
+        }
+    }
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 270px;
+        width: 100%;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 54px;
+        color: $colorWhite;
+        background-color: $colorMainActive;
+        border-radius: 3px;
+        -webkit-transition: 0.4s ease-out;
+        transition: 0.4s ease-out;
+
+        &:hover {
+            background-color: #63503D;
+            -webkit-transition: 0.4s ease-out;
+            transition: 0.4s ease-out;
+        }
+    }
+
+    &__parallax {
+        padding: 20px 0;
+        height: 33em;
+
+        &.parallax__1 {
+            background: url('./img/bg-img-1.jpg') no-repeat center;
+        }
+    }
+
+}
+
+
+
+@media (max-width: $media-width-md) {
+    .about-us {
+        &__block {
+            .row {
+                &>* {
+                    &:nth-child(1) {
+                        margin-right: 0px;
+                    }
+                }
+            }
+        }
+    }
+}

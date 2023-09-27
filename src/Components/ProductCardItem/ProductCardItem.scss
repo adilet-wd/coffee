@@ -1,0 +1,105 @@
+@import "../../color_variables";
+@import "../../breakpoints";
+
+.catalog__card {
+    margin: 10px;
+    &:hover {
+        .card-body {
+            // &::before {
+            //     content: "Посмотреть";
+            //     position: absolute;
+            //     top: -40px;
+            //     transition: 0.2s ease-in-out;
+            //     left: 0;
+            //     width: 100%;
+            //     height: 40px;
+            //     background-color: $colorMainActive;
+            //     z-index: 3;
+            // }
+        }
+    }
+    .card-img-top {
+        margin-top: 6px;
+    }
+    .card-body {
+        position: relative;
+        background-color: $colorWhite;
+        width: 100%;
+        height: 100%;
+        &::after {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: $colorMainActive;
+        }
+        // &::before {
+        //     content: "Посмотреть";
+        //     position: absolute;
+        //     top: -5px;
+        //     transition: 0.2s ease-in-out;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 40px;
+        //     background-color: $colorMainActive;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     z-index: 0;
+        // }
+    }
+    a {
+        color: $colorText;
+    }
+    .card-title {
+        font-size: 20px;
+        font-family: 'Oswald', sans-serif;
+        color: $colorText;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .card-text{
+        display: flex;
+        font-weight: 400;
+        flex-direction: column;
+    }
+    .price {
+        display: inline-block;
+        font-size: 16px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        &__inner {
+            font-weight: 400;
+        }
+    }
+    .weight {
+        display: inline-block;
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        color: $colorText;
+    }
+    .img__skeleton {
+        width: 274px;
+        height: 274px;
+    }
+    @media (max-width: $media-width-sm) {
+        .img__skeleton {
+            width: 224px;
+            height: 224px;
+        }
+    }
+    @media (max-width: 540px){
+        .img__skeleton {
+            width: 214px;
+            height: 214px;
+        }
+    }
+}
+@media (max-width: 540px){
+    .catalog .products-flex .catalog__card {
+        max-width: 240px;
+    }
+}

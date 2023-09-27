@@ -1,0 +1,76 @@
+@import "../../color_variables";
+@import "../../breakpoints";
+
+.catalog {
+    background-color: $colorWhite;
+
+    .container {
+        background-color: $colorWhite;
+    }
+
+    h1 {
+        font-size: 36px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: "Roboto Condensed", sans-serif;
+        margin-top: 20px;
+    }
+
+    li {
+        list-style: none;
+    }
+    .parallax__catalog {
+        background: url('./img/catalog-img.jpg') no-repeat right center;
+        height: 28em;
+    }
+
+    .catalog__products {
+        min-height: 60vh;
+
+    }
+    .products-flex {
+        .catalog__card {
+            max-width: 300px;
+        }
+    }
+
+    @media (max-width: $media-width-md) {
+        .products-flex {
+            justify-content: space-around;
+
+            .catalog__card {}
+        }
+    }
+
+    @media (max-width: $media-width-sm) {
+        .products-flex {
+            justify-content: space-between;
+
+            .catalog__card {
+                max-width: 250px;
+            }
+        }
+    }
+
+    @media (max-width: $media-width-xs) {
+        .parallax__catalog {
+            background: none;
+            height: 0;  
+        }
+        .products-flex {
+            justify-content: space-around;
+
+            .catalog__card {}
+        }
+    }
+
+    @media (max-width: 540px) {
+        .products-flex {
+            justify-content: space-around;
+
+            .catalog__card {
+                max-width: 180px;
+            }
+        }
+    }
+}

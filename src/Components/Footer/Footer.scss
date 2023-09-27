@@ -1,0 +1,182 @@
+@import "../../color_variables.scss";
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1;
+    color: $colorWhite;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 5;
+}
+
+.footer {
+    &.footer-desktop {
+        background-image: url('./img/footer-img.jpg');
+        min-height: 300px;
+        padding: 30px 0;
+        object-fit: none;
+        background-position: 50%;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &.footer-mobile {
+        background-color: #000000;
+        padding: 18px 0;
+        h4 {
+            font-size: 12px;
+            color: $colorMainActive;
+            margin-bottom: 0;
+            text-transform: capitalize;
+            font-weight: 400;
+        }
+
+        span {
+            color: #ACACAC;
+            font-size: 10px;
+            a {
+                color: #ACACAC;
+                font-size: 10px;
+
+            }
+        }
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    h4 {
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: $colorWhite;
+    }
+
+    .container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .row {
+        width: 100%;
+    }
+
+    li {
+        font-family: Merriweather, serif !important;
+        font-style: italic;
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: $colorWhite;
+
+        a {
+            color: $colorWhite;
+            text-decoration: none;
+
+            &:hover {
+                color: $colorMainActive;
+            }
+        }
+    }
+
+    .footer-buttons {
+        display: flex;
+        flex-direction: column;
+        max-width: 250px;
+        width: 100%;
+    }
+
+    .footer-buttons_elem {
+        display: flex;
+        line-height: 45px;
+        padding: 0 1em;
+        margin: 1em 0;
+        align-items: center;
+        justify-content: flex-start;
+        color: $colorWhite;
+        border-radius: 5px;
+
+        &:hover {
+            color: $colorMainActive;
+        }
+
+        svg {
+            max-width: 25px;
+            max-height: 25px;
+            margin-right: 5px;
+
+            transition: 0.15s ease-out path {
+                fill: $colorWhite;
+                transition: 0.15s ease-out
+            }
+        }
+    }
+
+    .instagram {
+        background-color: #C13584;
+
+        svg {
+            fill: $colorWhite;
+
+            path {
+                fill: $colorWhite;
+            }
+        }
+
+        &:hover {
+            svg {
+                fill: $colorMainActive;
+
+                path {
+                    fill: $colorMainActive;
+
+                }
+            }
+        }
+    }
+
+    .buy {
+        background-color: #69480f;
+        border: none;
+
+        svg {
+            path {
+                stroke: $colorWhite;
+
+            }
+        }
+
+        &:hover {
+            svg {
+                path {
+                    stroke: $colorMainActive;
+
+                }
+            }
+        }
+    }
+
+    .phone {
+        background-color: #65656a;
+
+        svg {
+            path {
+                stroke: $colorWhite;
+            }
+        }
+
+        &:hover {
+            svg {
+                path {
+                    stroke: $colorMainActive;
+                }
+            }
+        }
+    }
+}

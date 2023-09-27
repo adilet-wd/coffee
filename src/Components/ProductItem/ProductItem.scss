@@ -1,0 +1,110 @@
+@import "../../color_variables";
+@import "../../breakpoints";
+
+.product__card {
+    background-color: $colorWhite;
+    padding: 80px 0;
+    min-height: 60vh;
+
+    .product__img {
+        max-width: 500px;
+        margin-top: 6px;
+    }
+
+    .product__info {
+        display: flex;
+        flex-direction: column;
+        font-weight: 700;
+        font-size: 16px;
+
+        &>* {
+            margin: 5px 0;
+        }
+    }
+
+    .product__title {
+        color: #000000;
+        font-size: 36px;
+        font-family: 'Oswald', sans-serif;
+        margin: 0.67em 0;
+        text-transform: uppercase;
+    }
+
+    .inner {
+        font-weight: 400;
+    }
+
+    .product__img {
+        transition: 0.3s;
+    }
+
+    .product__text {
+        font-weight: 400;
+    }
+
+    .img__skeleton {
+        height: 500px;
+        width: 500px;
+    }
+
+    .product__weight {}
+
+    .product__roast {}
+
+    .product__blend {}
+
+    .product__price {
+        font-size: 18px;
+    }
+
+    .product__buy-button {
+        max-width: 320px;
+        line-height: 40px;
+        background-color: $colorMain;
+        border: 2px solid $colorMainActive;
+        font-weight: 300;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 0.1em;
+        transition: 0.2s ease-in;
+
+        &:hover {
+            background-color: $colorMainActive;
+            transition: 0.2s ease-out;
+        }
+    }
+
+    @media (max-width: $media-width-md) {
+        .row {
+            .product__img {
+                max-width: 400px;
+            }
+
+            .img__skeleton {
+                height: 400px;
+                width: 400px;
+            }
+        }
+    }
+
+    @media (max-width: $media-width-sm) {
+        .row {
+            .product__img-block {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    @media (max-width: $media-width-xs) {
+        .row {
+            .product__img {
+                max-width: 300px;
+            }
+
+            .img__skeleton {
+                height: 300px;
+                width: 300px;
+            }
+        }
+    }
+}

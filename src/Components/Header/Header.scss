@@ -1,0 +1,46 @@
+@import "../../color_variables";
+.nav-placeholder {
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    padding: 0;
+}
+header {
+    font-family: 'Montserrat', sans-serif;
+}
+.navbar {
+    background-color: $colorMain;
+    font-size: 16px;
+    .logo {
+    }
+    .active_page {
+        color: $colorMainActive;
+    }
+    &-nav {
+        --bs-nav-link-color: $colorMain; 
+        color: $colorText;
+    };
+    &-brand {
+        color: $colorText;
+        display: flex;
+        align-items: center;
+    };
+    &-collapse {
+        justify-content: space-between;
+        flex-grow: 0;
+    };
+    a:hover {
+        color: $colorText;
+    } 
+    a {
+        color: $colorText;
+        text-decoration: none;
+        padding: 5px 10px;
+    }
+    .active_link {
+        color: $colorText;
+    }
+}
