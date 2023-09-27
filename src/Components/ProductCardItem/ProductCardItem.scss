@@ -98,8 +98,11 @@
         }
     }
 }
-@media (max-width: 540px){
+@media (max-width: 540px){  
     .catalog .products-flex .catalog__card {
+        max-width: 240px;
+    }
+    .notFound .products-flex .catalog__card {
         max-width: 240px;
     }
 }

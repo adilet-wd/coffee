@@ -21,7 +21,9 @@ function App() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.querySelector(".navbar-toggler").click();
+    if (!document.querySelector(".navbar-toggler").classList.contains("collapsed")){
+      document.querySelector(".navbar-toggler").click()
+    }
   }, [location]);
   return (
     <>
@@ -30,6 +32,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/catalog/:id" element={<Product />} />
+          <Route path="/catalog/*" element={<Notfoundpage />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/robusta-i-arabica" element={<BlogRabustaIArabica/>} />

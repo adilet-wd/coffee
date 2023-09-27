@@ -13,14 +13,16 @@ const ProductCardItem = ({ to, title, price, weight, img }) => {
         setIsLoading(false);
     };
     return (
-        <Card className='catalog__card'>
+            <Card className='catalog__card'>
             {isLoading ? (
                 <Skeleton className="img__skeleton" /> // Здесь вы можете настроить размеры заглушки
             ) : null}
+            <Link to={to}>
             <Card.Img variant="top" src={img} alt={title}
                 style={{ display: isLoading ? 'none' : 'flex'}}
                 onLoad={handleImageLoad}
             />
+            </Link>
             <Link to={to}>
                 <Card.Body>
                     <Card.Title>

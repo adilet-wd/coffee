@@ -26,18 +26,25 @@
 
     .catalog__products {
         min-height: 60vh;
-
     }
     .products-flex {
+        justify-content: space-between;
         .catalog__card {
             max-width: 300px;
         }
     }
 
+    @media (max-width: $media-width-xl) {
+        .products-flex {
+            justify-content: space-between; 
+            .catalog__card {
+                max-width: 280px;
+            }
+        }
+    }
     @media (max-width: $media-width-md) {
         .products-flex {
             justify-content: space-around;
-
             .catalog__card {}
         }
     }
@@ -65,12 +72,12 @@
     }
 
     @media (max-width: 540px) {
-        .products-flex {
-            justify-content: space-around;
+        // .products-flex {
+        //     justify-content: space-around;
 
-            .catalog__card {
-                max-width: 180px;
-            }
-        }
+        //     .catalog__card {
+        //         max-width: 180px;
+        //     }
+        // }
     }
 }
