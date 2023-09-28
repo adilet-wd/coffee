@@ -1,0 +1,46 @@
+@import "../../color_variables";
+@import "../../breakpoints";
+.cart {
+    h1 {
+        font-size: 36px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: "Roboto Condensed", sans-serif;
+        margin-top: 20px;
+    }
+    .cart-inner {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        background-color: $colorWhite;
+    }
+    .cart__order {
+        display: flex;
+        flex-direction: column;
+        padding: 30px 20px;
+        border: 5px solid $colorMainActive;
+    }
+    .cart__order-row {
+        color: $colorText;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+    }
+    .cart__order-total {
+        font-weight: 600;
+    }
+    .cart__order-button {
+        margin: 10px 0;
+        color: #000000;
+        background-color: $colorMain;
+        border-radius: 0;
+        border: 2px solid $colorMainActive;
+        transition: 0.2s ease-in;
+        font-weight: 300;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 0.1em;
+        &:hover {
+            background-color: $colorMainActive;
+        }
+    }
+
+}

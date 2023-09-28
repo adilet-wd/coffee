@@ -12,9 +12,11 @@ import Notfoundpage from './Pages/Notfoundpage/Notfoundpage'
 import Blogpost from './Pages/Blogpost/Blogpost';
 import Product from './Pages/Product/Product';
 import Layout from './Components/Layout/Layout';
+import NotfoundProductPage from './Pages/NotfoundProductPage/NotfoundProductPage';
 
 // Страницы блога
 import BlogRabustaIArabica from './Pages/BlogPages/BlogRabustaIArabica/BlogRabustaIArabica';
+import Cart from './Pages/Cart/Cart';
 
 function App() {
   const location = useLocation();
@@ -32,13 +34,12 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/catalog/:id" element={<Product />} />
-          <Route path="/catalog/*" element={<Notfoundpage />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/robusta-i-arabica" element={<BlogRabustaIArabica/>} />
+          <Route path="/cart" element={<Cart/>} />
+          {/*<Route path="/contacts" element={<Contacts />} />/*}
+          {/* <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/robusta-i-arabica" element={<BlogRabustaIArabica/>} /> */}
           {/* <Route path="/blog/:id" element={<Blogpost />} /> */}
-          {/* <Route path="/blog/*" element={<Notfoundpage />} /> */}
-          <Route path="*" element={<Notfoundpage />} />
+          <Route path="*" element={<Notfoundpage/>} />
         </Route>
       </Routes>
     </>
