@@ -2,7 +2,7 @@
 @import "../../breakpoints";
 
 .catalog__card {
-    margin: 10px;
+    // margin: 10px;
     &:hover {
         .card-body {
             // &::before {
@@ -82,19 +82,26 @@
         color: $colorText;
     }
     .img__skeleton {
-        width: 274px;
-        height: 274px;
+        position: relative;
+        // width: 274px;
+        // height: 274px;
+        width: 100%;
+        height: 100%;
     }
     @media (max-width: $media-width-sm) {
         .img__skeleton {
             width: 224px;
             height: 224px;
+            width: 100%;
+            height: 100%;
         }
     }
     @media (max-width: 540px){
         .img__skeleton {
             width: 214px;
             height: 214px;
+            width: 100%;
+            height: 100%;
         }
     }
 }

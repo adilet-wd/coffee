@@ -19,7 +19,7 @@ const ProductCardItem = ({ to, title, price, weight, img }) => {
             ) : null}
             <Link to={to}>
             <Card.Img variant="top" src={img} alt={title}
-                style={{ display: isLoading ? 'none' : 'flex'}}
+                style={{ display: isLoading ? 'none' : 'grid'}}
                 onLoad={handleImageLoad}
             />
             </Link>

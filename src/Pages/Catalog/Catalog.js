@@ -6,7 +6,6 @@ import { ref, onValue, getDatabase, child, get } from 'firebase/database';
 import { database } from '../..';
 import './Catalog.scss';
 import ProductCardItem from '../../Components/ProductCardItem/ProductCardItem';
-
 const Catalog = () => {
     const [products, setProducts] = useState([]);
     // Получение списка с сервера
@@ -14,11 +13,12 @@ const Catalog = () => {
     // Получаем json с данными о постах
     useEffect(() => {
         try {
-            let databaseConnection = ref(database, '/Products');
+            let databaseConnection = ref(database, '/Products/');
             get(databaseConnection).then(
                 (data) => {
                     const dataFromDataBase = data.val();
-                    setProducts(dataFromDataBase);
+                    const objectedArr = Object.values(dataFromDataBase);
+                    setProducts(objectedArr);
                 }
             );
         } catch (err) {
@@ -35,15 +35,16 @@ const Catalog = () => {
                 <h1>Каталог</h1>
             </Container>
             <Container className='catalog__products'>
-                <Row className='products-flex'>
-                    {
+                <div className='products-flex'>
+                    {   
+                        
                         products.map(product => (
-                            <ProductCardItem key={product.id} to={`/catalog/${product.id}`} title={product.title} price={product.price} weight={product.weight} img={product.img}>
+                            <ProductCardItem key={product.id} to={`/catalog/${product.url}`} title={product.title} price={product.price} weight={product.weight} img={product.img}>
                             </ProductCardItem>
 
                         ))
                     }
-                </Row>
+                </div>
             </Container>
         </div>
     );

@@ -14,12 +14,13 @@ const Notfoundpage = () => {
     // Получаем json с данными о постах
     useEffect(() => {
         try {
-            let databaseConnection = ref(database, '/Products');
+            let databaseConnection = ref(database, '/Products/');
             get(databaseConnection).then(
                 (data) => {
                     const dataFromDataBase = data.val();
+                    const objectedArr = Object.values(dataFromDataBase);
                     // setProducts(dataFromDataBase);
-                    setProducts(dataFromDataBase.slice(0,3));
+                    setProducts(objectedArr.slice(0,3));
                 }
             );
         } catch (err) {

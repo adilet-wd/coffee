@@ -26,36 +26,47 @@
 
     .catalog__products {
         min-height: 60vh;
+        padding-bottom: 10px;
     }
     .products-flex {
-        justify-content: space-between;
-        .catalog__card {
-            max-width: 300px;
-        }
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 10px;
+        row-gap: 10px;
+        // justify-content: space-between;
+        // .catalog__card {
+        //     max-width: 300px;
+        // }
     }
 
     @media (max-width: $media-width-xl) {
         .products-flex {
-            justify-content: space-between; 
-            .catalog__card {
-                max-width: 280px;
-            }
+            // justify-content: space-between; 
+            // .catalog__card {
+            //     max-width: 280px;
+            // }
         }
     }
     @media (max-width: $media-width-md) {
         .products-flex {
-            justify-content: space-around;
-            .catalog__card {}
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 10px;
+            row-gap: 10px;
+            // justify-content: space-around;
+            // .catalog__card {}
         }
     }
 
     @media (max-width: $media-width-sm) {
         .products-flex {
-            justify-content: space-between;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 10px;
+            row-gap: 10px;
+            // justify-content: space-between;
 
-            .catalog__card {
-                max-width: 250px;
-            }
+            // .catalog__card {
+            //     max-width: 250px;
+            // }
         }
     }
 
@@ -64,14 +75,26 @@
             background: none;
             height: 0;  
         }
+        .catalog__products {
+            padding: 5px;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 5px;
+            row-gap: 5px;
+        }
         .products-flex {
-            justify-content: space-around;
+            // justify-content: space-around;
 
-            .catalog__card {}
+            // .catalog__card {}
         }
     }
 
-    @media (max-width: 540px) {
+    @media (max-width: 320px) {
+        // .catalog__products {
+        //     padding: 5px;
+        //     grid-template-columns: 1fr;
+        //     column-gap: 5px;
+        //     row-gap: 5px;
+        // }
         // .products-flex {
         //     justify-content: space-around;
 
@@ -79,5 +102,6 @@
         //         max-width: 180px;
         //     }
         // }
+        
     }
 }
