@@ -1,6 +1,7 @@
 @import "../../color_variables";
 @import "../../breakpoints";
 .cart {
+    min-height: 80vh;
     h1 {
         font-size: 36px;
         font-weight: 700;
@@ -16,8 +17,10 @@
     .cart__order {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         padding: 30px 20px;
         border: 5px solid $colorMainActive;
+        max-height: 250px;
     }
     .cart__order-row {
         color: $colorText;
@@ -42,5 +45,12 @@
             background-color: $colorMainActive;
         }
     }
-
+    .cart__products-list {
+        padding-bottom: 6px;
+        padding-top: 6px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
 }

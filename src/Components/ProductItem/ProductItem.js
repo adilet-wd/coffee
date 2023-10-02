@@ -13,7 +13,9 @@ const ProductItem = ({ url, title, price, weight, img, body, roast, blend, id })
     const handleImageLoad = () => {
         setIsLoading(false);
     };
+    // Массив с товарами который мы будем менять и передавать
     let cartProductsArray = []
+    // Формат товара, в котором он будет отправляться в localstorage
     let cartProductModel = { 
         "blend": blend,
         "body": body,
@@ -27,26 +29,38 @@ const ProductItem = ({ url, title, price, weight, img, body, roast, blend, id })
         "amountInCart": 1 
     };
 
+    // Добавление товара в корзину
     function updateCartProducts(){
-        // Добавление товара в корзину
+        // Получение товаров в корзине
         let cartProducts = JSON.parse(localStorage.getItem('productsInCart'));
         
         // Если корзина пустая, то создаем массив и добавляем туда объекты
         if (cartProducts == null) {
+            // Корзина была пуста
             cartProductsArray.push(cartProductModel);
             cartProducts = cartProductsArray;
             localStorage.setItem('productsInCart', JSON.stringify(cartProducts));
         } else {
+            let isExistInCart = false;
             // Проверяем есть ли уже такой же товар, если нет, то просто добавляем
-            for (let i; i < cartProducts.length; i++ ){
-                if(cartProducts[i][id] === cartProducts[id]) {
+            for (let i = 0; i < cartProducts.length; i++ ){
+                if(cartProducts[i].id == cartProductModel.id) {
                     cartProducts[i].amountInCart += 1;
+                    console.log("Такой товар уже есть")
+                    // Если такой товар уже есть, то увеличиваем его количество в корзине
                     localStorage.setItem('productsInCart', JSON.stringify(cartProducts));
+                    console.log(JSON.parse(localStorage.getItem("productsInCart")));
+                    // Меняем значение переменной на true
+                    isExistInCart = true;
                     break;
-                } 
+                }
             }
-            cartProducts.push(cartProductModel);
-            localStorage.setItem('productsInCart', JSON.stringify(cartProducts));
+
+            if (isExistInCart == false) {
+                cartProducts.push(cartProductModel);
+                localStorage.setItem('productsInCart', JSON.stringify(cartProducts));
+                console.log(JSON.parse(localStorage.getItem("productsInCart")));
+            }
         }
     }
         

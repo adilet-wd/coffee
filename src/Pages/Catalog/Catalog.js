@@ -37,7 +37,6 @@ const Catalog = () => {
             <Container className='catalog__products'>
                 <div className='products-flex'>
                     {   
-                        
                         products.map(product => (
                             <ProductCardItem amountInCart={product.amountInCart} key={product.id} to={`/catalog/${product.url}`} title={product.title} price={product.price} weight={product.weight} img={product.img}>
                             </ProductCardItem>
