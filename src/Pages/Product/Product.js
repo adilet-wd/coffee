@@ -35,7 +35,7 @@ const Product = () => {
     if (product) {
         return (
             <>
-                <ProductItem title={product.title} price={product.price} weight={product.weight} img={product.img} body={product.body} roast={product.roast} blend={product.blend} id={product.id}></ProductItem>
+                <ProductItem url={product.url} title={product.title} price={product.price} weight={product.weight} img={product.img} body={product.body} roast={product.roast} blend={product.blend} id={product.id}></ProductItem>
             </>
         )
     } else {
