@@ -56,7 +56,7 @@ const ProductItem = ({ url, title, price, weight, img, body, roast, blend, id })
                 }
             }
 
-            if (isExistInCart == false) {
+            if (isExistInCart === false) {
                 cartProducts.push(cartProductModel);
                 localStorage.setItem('productsInCart', JSON.stringify(cartProducts));
                 console.log(JSON.parse(localStorage.getItem("productsInCart")));

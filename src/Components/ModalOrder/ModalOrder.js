@@ -91,15 +91,14 @@ const ModalOrder = ({ innerContent, className, buttonInner }) => {
                                 placeholder="+996557662291"
                             />
                         </Form.Group>
-                        <Form.Group
+                        {/*<Form.Group
                             className="mb-3"
                             controlId="validationOrderText">
                             <Form.Label>Содержимое заказа</Form.Label>
                             <Form.Control
                                 required
                                 name="message" as="textarea" rows={3} />
-                        </Form.Group>
-                        
+                        </Form.Group> */}
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>
                                 Закрыть

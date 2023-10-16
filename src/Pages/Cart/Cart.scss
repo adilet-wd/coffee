@@ -32,19 +32,21 @@
         font-weight: 600;
     }
     .cart__order-button {
-        margin: 10px 0;
-        color: #000000;
+        max-width: 320px;
+        line-height: 40px;
         background-color: $colorMain;
-        border-radius: 0;
         border: 2px solid $colorMainActive;
-        transition: 0.2s ease-in;
         font-weight: 300;
         font-family: "Oswald", sans-serif;
         letter-spacing: 0.1em;
+        transition: 0.2s ease-in;
+
         &:hover {
             background-color: $colorMainActive;
+            transition: 0.2s ease-out;
         }
     }
+    
     .cart__products-list {
         padding-bottom: 6px;
         padding-top: 6px;

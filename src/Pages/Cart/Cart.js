@@ -1,8 +1,8 @@
 import './Cart.scss';
 import {React, useEffect, useState} from 'react';
-import { Button, Container, Row } from 'react-bootstrap';
+import { Button, Container} from 'react-bootstrap';
 import CartProduct from '../../Components/CartProduct/CartProduct';
-
+import ModalOrder from '../../Components/ModalOrder/ModalOrder';
 export default function Cart() {
   
   const [cartProducts, setCartProducts] = useState([]);
@@ -13,14 +13,23 @@ export default function Cart() {
     try {
       // Получаем с локалсторейдж массив объектов по ключу items
       const storedCartProduct = JSON.parse(localStorage.getItem('productsInCart'));
+
       if(storedCartProduct) {
         setCartProducts(storedCartProduct);
-        for (let i = 0; i < storedCartProduct.length; i--){
-          console.log("Выводим цену этого массива")
-          console.log(storedCartProduct)
-          setProductAmount(productAmount + storedCartProduct[i].amountInCart);
-          setTotalPrice(totalPrice   + (storedCartProduct[i].amountInCart * storedCartProduct[i].price));
+      
+        //  Получение данных о цене товаров и количестве
+        let productsInCartAmount = 0;
+        let productsInCartTotal = 0;
+        for (let i = 0; i < storedCartProduct.length; i++){
+          // console.log("Выводим цену этого массива")
+          productsInCartTotal += storedCartProduct[i].amountInCart * storedCartProduct[i].price;
+          productsInCartAmount += storedCartProduct[i].amountInCart;
+          
+          setProductAmount(productsInCartAmount);
+          setTotalPrice(productsInCartTotal);
+          // setTotalPrice(totalPrice + (storedCartProduct[i].amountInCart * storedCartProduct[i].price));
         }
+
       }
     } catch (err) { 
         console.log(err)
@@ -28,20 +37,29 @@ export default function Cart() {
   },[])
 
   function handleCartChange(changedCart) {
+
+    const storedCartProduct = JSON.parse(localStorage.getItem('productsInCart'));
     // Функция обратного вызова для обновления состояния родительского компонента
     // Изменились ли элементы в корзине
-    setCartProducts(changedCart);
+    setCartProducts(storedCartProduct);
 
-    // Если есть изменения, делаем пересчет цены
-    const storedCartProduct = cartProducts;
+    // Если есть изменения, делаем пересчеты
     if(storedCartProduct) {
       setCartProducts(storedCartProduct);
-      for (let i = 0; i < storedCartProduct.length; i--){
-        console.log("Выводим цену этого массива")
-        console.log(storedCartProduct)
-        setProductAmount(productAmount + storedCartProduct[i].amountInCart);
-        setTotalPrice(totalPrice + (storedCartProduct[i].amountInCart * storedCartProduct[i].price));
+      
+      //  Получение данных о цене товаров и количестве
+      let productsInCartAmount = 0;
+      let productsInCartTotal = 0;
+      for (let i = 0; i < storedCartProduct.length; i++){
+        // console.log("Выводим цену этого массива")
+        productsInCartTotal += storedCartProduct[i].amountInCart * storedCartProduct[i].price;
+        productsInCartAmount += storedCartProduct[i].amountInCart;
+        
+        setProductAmount(productsInCartAmount);
+        setTotalPrice(productsInCartTotal);
+        // setTotalPrice(totalPrice + (storedCartProduct[i].amountInCart * storedCartProduct[i].price));
       }
+
     }
   }
 
@@ -74,7 +92,10 @@ export default function Cart() {
               <div className='cart__order-text'>Итого</div>
               <div className='cart__order-text'>{totalPrice} сом</div>
             </div>
-            <Button className='cart__order-button' onClick={clearCart}>Оформить заказ</Button>
+            {/* <Button className='cart__order-button' onClick={clearCart}>Оформить заказ</Button> */}
+             
+            <ModalOrder className={"cart__order-button"} buttonInner={"Оформить заказ"}></ModalOrder>
+          
           </div>
         </div>
       </Container>

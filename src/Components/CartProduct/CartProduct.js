@@ -22,17 +22,21 @@ export default function CartProduct({onCartChange,inCart ,url,amountInCartFromSe
         let cartProducts = JSON.parse(localStorage.getItem('productsInCart'));
         // Проверяем есть ли уже такой же товар
         for (let i = 0; i < cartProducts.length; i++ ){
-            if(cartProducts[i].id == id) {
+            if(cartProducts[i].id === id) {
+
                 cartProducts[i].amountInCart += 1;
-                setAmountInCart(amountInCart+1);
+                setAmountInCart(cartProducts[i].amountInCart);
+
                 // Если такой товар уже есть, то увеличиваем его количество в корзине
                 onCartChange(cartProducts);
-                localStorage.setItem('productsInCart', JSON.stringify(cartProducts));
                 // Отправляем в родительский элемент изменение корзины
+
+                localStorage.setItem('productsInCart', JSON.stringify(cartProducts));
                 
                 break;
             }
         } 
+        onCartChange(cartProducts);
     }
 
     function decreaseAmount(){
@@ -51,6 +55,7 @@ export default function CartProduct({onCartChange,inCart ,url,amountInCartFromSe
                     break;
                 }
             } 
+            onCartChange(cartProducts);
         }
     }
     
@@ -61,7 +66,7 @@ export default function CartProduct({onCartChange,inCart ,url,amountInCartFromSe
 
             for (let i = 0; i < cartProducts.length; i++ ){
                 // Ищем товар в корзине
-                    if(cartProducts[i].id == id) {
+                    if(cartProducts[i].id === id) {
                         // Если есть,то возвращаем новый массив без текущего товара 
                         let changedCart = cartProducts.filter(function(obj) {
                             return obj.id !== id;
