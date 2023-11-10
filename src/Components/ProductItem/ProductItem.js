@@ -86,7 +86,7 @@ const ProductItem = ({ url, title, price, weight, img, body, roast, blend, id })
                         <span className='blend__blend'>Смесь: <span className='blend__inner inner'>{blend || <Skeleton />}</span></span>
                         <span className='product__price'>Цена: <span className='price__inner inner'>{price || <Skeleton />} сом</span></span>
                         {/* <ModalOrder className={'product__buy-button'} buttonInner={'Заказать'}/> */}
-                        <Button className='cart__order-button' onClick={updateCartProducts}>Добавить товар в корзину</Button>
+                        <div className='cart__order-button' onClick={updateCartProducts}>Добавить товар в корзину</div>
                     </Col>
                 </Row>
             </Container>

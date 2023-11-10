@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
 import './ModalOrder.scss';
@@ -7,6 +7,7 @@ import './ModalOrder.scss';
 const ModalOrder = ({ innerContent, className, buttonInner }) => {
     const [showConfirm, setShowConfirm] = useState(false);
     const [show, setShow] = useState(false);
+    const [cartProducts, setCartProducts] = useState('');
     const form = useRef();
     const [validated, setValidated] = useState(false);
 
@@ -16,11 +17,10 @@ const ModalOrder = ({ innerContent, className, buttonInner }) => {
     const handleCloseConfirm = () => setShowConfirm(false);
     const handleShowConfirm = () => setShowConfirm(true);
 
-
+    
     // Отправка сообщения на почту
     const sendEmail = (e) => {
         e.preventDefault();
-
         emailjs.sendForm('service_blc6fmm', 'template_gao59ps', form.current, 'pwfsWchJgGbipbQo-')
             .then((result) => {
                 console.log(result.text);
@@ -49,7 +49,21 @@ const ModalOrder = ({ innerContent, className, buttonInner }) => {
         handleShowConfirm()
     }
 
+    useEffect(() => {
+        try {
+          // Получаем с локалсторейдж массив объектов по ключу items
+            const storedCartProduct = JSON.parse(localStorage.getItem('productsInCart'));
+            let outputCartProducts = [];
+            storedCartProduct.map(product => (
+                outputCartProducts.push(`----Название товара: ${product.title}, Сколько заказали: ${product.amountInCart} , Id товара: ${product.id}, Ссылка на товар: ${product.url}, Цена за 1 товар ${product.price} сом ----`)
+            ));
 
+
+            setCartProducts(JSON.stringify(outputCartProducts));
+        } catch (err) { 
+            console.log(err)
+        }
+      },[])
 
     return (
         <>
@@ -91,7 +105,7 @@ const ModalOrder = ({ innerContent, className, buttonInner }) => {
                                 placeholder="+996557662291"
                             />
                         </Form.Group>
-                        {/*<Form.Group
+                        {/* <Form.Group
                             className="mb-3"
                             controlId="validationOrderText">
                             <Form.Label>Содержимое заказа</Form.Label>
@@ -99,6 +113,16 @@ const ModalOrder = ({ innerContent, className, buttonInner }) => {
                                 required
                                 name="message" as="textarea" rows={3} />
                         </Form.Group> */}
+                        <Form.Group
+                            className="mb-3"
+                            controlId="validationOrderText" id={"orderInputArea"}>    
+                            <Form.Label>Содержимое заказа</Form.Label>
+                            <Form.Control
+                                required
+                                name="message" value={cartProducts}
+                                onChange={(e) => setCartProducts(e.target.value)}
+                                readOnly as="textarea" rows={3} />
+                        </Form.Group>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>
                                 Закрыть

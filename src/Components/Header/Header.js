@@ -25,7 +25,7 @@ const Header = (props) => {
                             <Nav className='mr-auto'>
                                 <NavLink to="/" className={setActive}>Главная</NavLink>
                                 <NavLink to="/catalog" className={setActive}>Каталог</NavLink>
-                                <NavLink to="/blog" className={setActive}>Блог</NavLink>
+                                {/* <NavLink to="/blog" className={setActive}>Блог</NavLink> */}
                                 <NavLink to="/cart" className={setActive}>Корзина</NavLink>
                                 {/* <NavLink to="/contacts" className={setActive}>Контакты</NavLink> */}
                             </Nav>

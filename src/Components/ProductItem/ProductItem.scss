@@ -6,6 +6,26 @@
     padding: 80px 0;
     min-height: 60vh;
 
+    .cart__order-button {
+        background-color: $colorMain;
+        border: 2px solid $colorMainActive;
+        font-weight: 300;
+        font-family: "Oswald", sans-serif;
+        letter-spacing: 0.1em;
+        transition: 0.2s ease-in;
+        margin-top: 15px;
+        color: #000000;
+        padding: 6px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+            background-color: $colorMainActive;
+            transition: 0.2s ease-out;
+        }
+    }
     .product__img {
         max-width: 500px;
         margin-top: 6px;
@@ -46,12 +66,6 @@
         height: 500px;
         width: 500px;
     }
-
-    .product__weight {}
-
-    .product__roast {}
-
-    .product__blend {}
 
     .product__price {
         font-size: 18px;
