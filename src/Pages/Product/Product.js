@@ -40,7 +40,7 @@ const Product = () => {
         )
     } else {
         return (
-            <Notfoundpage></Notfoundpage>
+            <Notfoundpage ></Notfoundpage>
         )
     }
 
