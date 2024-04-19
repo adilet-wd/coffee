@@ -33,7 +33,9 @@ const ProductItem = ({ url, title, price, weight, img, body, roast, blend, id })
     function updateCartProducts(){
         // Получение товаров в корзине
         let cartProducts = JSON.parse(localStorage.getItem('productsInCart'));
-        
+
+        // Уведомление о добавлении товара
+        alert("Товар добавлен в корзину");
         // Если корзина пустая, то создаем массив и добавляем туда объекты
         if (cartProducts == null) {
             // Корзина была пуста
