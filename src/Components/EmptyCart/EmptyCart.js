@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const EmptyCart = () => {
     return (
         <div className='empty-cart'>
-            <h2>
+            <h1>
                 Ваша корзина пуста
-            </h2>
+            </h1>
             <p className='text-center'>Возможно товары в <Link to="/catalog/">каталоге</Link> помогут вам определиься с выбором</p>
         </div>
     );

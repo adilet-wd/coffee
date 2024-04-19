@@ -14,7 +14,6 @@ export default function Cart() {
     try {
       // Получаем с локалсторейдж массив объектов по ключу items
       const storedCartProduct = JSON.parse(localStorage.getItem('productsInCart'));
-
       if(storedCartProduct) {
         setCartProducts(storedCartProduct);
       
@@ -74,20 +73,23 @@ export default function Cart() {
   return (
     <div className='cart'>
       <Container>
-        <div className='cart__title'><h1>Корзина</h1> <div onClick={clearCart} className='cart__clear-button'>Очистить корзину</div></div>
+        {cartProducts.length !== 0 ? (
+          <div className='cart__title'><h1>Корзина</h1> <div onClick={clearCart} className='cart__clear-button'>Очистить корзину</div></div>
+        ): null}
         
-        <div className='cart-inner'>
-          <div className='cart__products-list'> 
-          
-          {/* Проверка пустая ли корзина, если нет, то создает продукты, если да, то возвращает надпись */}
-            
-            {cartProducts.length !== 0 ? (cartProducts.map(product => (
+        {/* Проверка наличия продуктов в корзине */}
+        {cartProducts.length !== 0 ? (
+          <div className='cart-inner'>
+
+          <div className='cart__products-list'>
+          {/* Создание продуктов из корзины */}
+            {cartProducts.map(product => (
               <CartProduct onCartChange={handleCartChange} inCart={true} id={product.id} img={product.img} amountInCartFromServer={product.amountInCart} key={product.id} title={product.title} blend={product.blend} price={product.price}></CartProduct>
               
-              ))): <EmptyCart></EmptyCart>}
-            
+            ))}
           </div>
-          {cartProducts.length !== 0 ? (<div className='cart__order'>
+
+          <div className='cart__order'>
             <div className='cart__order-row'>
               <div className='cart__order-text'>{productAmount} товар&#40;а,ов&#41;</div>
               <div className='cart__order-text'>{totalPrice} сом</div>
@@ -100,9 +102,11 @@ export default function Cart() {
              
             <ModalOrder className={"cart__order-button"} buttonInner={"Оформить заказ"}></ModalOrder>
           
-          </div>): (null)}
+          </div>
           
         </div>
+        ): (<EmptyCart></EmptyCart>)}
+        
       </Container>
     </div>
   )
